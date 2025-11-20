@@ -1,3 +1,6 @@
 # 코딩 테스트 연습
 ## 구성
-#### C++, icote_book, 프로그래머스(kakao문제, MySQL, PCCP, etc..), SW Expert Academy
+1. C++
+2. SW Expert Academy
+3. icote_book
+4. 프로그래머스(kakao문제, MySQL, PCCP, etc..)
