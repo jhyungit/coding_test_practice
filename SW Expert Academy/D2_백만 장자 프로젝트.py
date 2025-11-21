@@ -1,7 +1,7 @@
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LrsUaDxcDFAXc
 
 import sys
-sys.stdin = open("SW Expert Academy/input_txt/백만 장자 프로젝트.txt","r")
+sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/백만 장자 프로젝트.txt","r")
 
 def solution(price):
     max_price = price[-1]

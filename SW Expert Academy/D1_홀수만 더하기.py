@@ -1,7 +1,7 @@
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QSEhaA5sDFAUq
 
 import sys
-sys.stdin = open("SW Expert Academy/input_txt/홀수만 더하기.txt","r")
+sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/홀수만 더하기.txt","r")
 
 T = int(input())
 arr = []

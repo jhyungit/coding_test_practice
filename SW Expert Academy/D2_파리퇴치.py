@@ -1,7 +1,7 @@
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PzOCKAigDFAUq
 
 import sys
-sys.stdin = open("SW Expert Academy/input_txt/파리퇴치.txt","r")
+sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/파리퇴치.txt","r")
 
 def solution(flies, weapon):
     ans = set()

@@ -1,7 +1,7 @@
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AZmeHlF68SDHBIPN
 
 import sys
-sys.stdin = open("SW Expert Academy/input_txt/유치원생은 쉽게 푸는 문제.txt","r")
+sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/유치원생은 쉽게 푸는 문제.txt","r")
 
 space = [1,0,0,0,1,0,1,0,2,1]
 num = [i for i in range(0,10)]

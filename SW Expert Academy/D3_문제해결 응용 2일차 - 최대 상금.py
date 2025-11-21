@@ -1,7 +1,7 @@
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15Khn6AN0CFAYD
 
 import sys
-sys.stdin = open("SW Expert Academy/input_txt/최대상금.txt","r")
+sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/최대상금.txt","r")
 
 T = int(input())
 
