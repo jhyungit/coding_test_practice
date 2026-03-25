@@ -34,29 +34,21 @@ def solution(n, s, a, b, fares):
         graph[u].append((v,w))
         graph[v].append((u,w))
     
+    # s -> k까지 최단 거리 
+    distS = dijkstra(s, n)
+
     # 합승하지 않는 최단 거리
-    dist = dijkstra(s, n) # s에서 모든 좌표 최단거리 경로
-    answer.add(dist[a]+dist[b]) # 후보 추가
+    answer.add(distS[a] + distS[b])
     
     # s -> 경유(k) -> a,b 최단 거리
     for k in range(1, n+1):
-        tot = 0
         if k == s:
             continue
-        
-        # s -> k까지 최단 거리 
-        dist = dijkstra(k, n)
-        tot += dist[k]
-        
-        # k -> a 최단거리
-        dist = dijkstra(k, n)
-        tot += dist[a]
-        # k -> b 최단거리
-        tot += dist[b]
-        
+
+        # k부터 모든 곳의 최단거리
+        distK = dijkstra(k, n)
+        tot = distS[k] + distK[a] + distK[b]
+
         answer.add(tot)
     
-    print(answer)
     return min(answer)
-
-solution(6,4,5,6,[[2,6,6], [6,3,7], [4,6,7], [6,5,11], [2,5,12], [5,3,20], [2,4,8], [4,3,9]])
