@@ -13,10 +13,13 @@ def dijkstra(start, n):
     while heap:
         length, u = heapq.heappop(heap)
 
+        if dist[u] < length:
+            continue
+
         for v, weight in graph[u]:
-            if dist[v] < length + weight:
+            if dist[v] <= length + weight:
                 continue
-                
+
             dist[v] = length + weight
             heapq.heappush(heap, (dist[v], v))
     return dist
@@ -42,7 +45,7 @@ def solution(n, s, a, b, fares):
             continue
         
         # s -> k까지 최단 거리 
-        dist = dijkstra(s, n)
+        dist = dijkstra(k, n)
         tot += dist[k]
         
         # k -> a 최단거리
@@ -53,4 +56,7 @@ def solution(n, s, a, b, fares):
         
         answer.add(tot)
     
+    print(answer)
     return min(answer)
+
+solution(6,4,5,6,[[2,6,6], [6,3,7], [4,6,7], [6,5,11], [2,5,12], [5,3,20], [2,4,8], [4,3,9]])
