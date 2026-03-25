@@ -1,3 +1,51 @@
+# 최종 최적화 코드
+import heapq
+
+INF = float("inf")
+
+def dijkstra(start, n):
+    heap = []
+    dist = [INF] * (n + 1)
+
+    # 출발 좌표, 거리
+    heapq.heappush(heap, (0, start))
+    dist[start] = 0
+    
+    while heap:
+        length, u = heapq.heappop(heap)
+
+        if dist[u] < length:
+            continue
+
+        for v, weight in graph[u]:
+            if dist[v] <= length + weight:
+                continue
+
+            dist[v] = length + weight
+            heapq.heappush(heap, (dist[v], v))
+    return dist
+    
+def solution(n, s, a, b, fares):
+    global graph
+    
+    graph = [[] for _ in range(n+1)]
+    
+    for u, v, w in fares:
+        graph[u].append((v,w))
+        graph[v].append((u,w))
+    
+    # 다익스트라
+    distS = dijkstra(s, n)
+    distA = dijkstra(a, n)
+    distB = dijkstra(b, n)
+    
+    ans = INF
+    for k in range(1, n+1):
+        ans = min(ans, distS[k] + distA[k] + distB[k])
+    
+    return ans
+
+# 1차 코드
 import heapq
 
 INF = float("inf")
