@@ -46,57 +46,57 @@ def solution(n, s, a, b, fares):
     return ans
 
 # 1차 코드
-import heapq
+# import heapq
 
-INF = float("inf")
+# INF = float("inf")
 
-def dijkstra(start, n):
-    heap = []
-    dist = [INF] * (n + 1)
+# def dijkstra(start, n):
+#     heap = []
+#     dist = [INF] * (n + 1)
 
-    # 출발 좌표, 거리
-    heapq.heappush(heap, (0, start))
-    dist[start] = 0
+#     # 출발 좌표, 거리
+#     heapq.heappush(heap, (0, start))
+#     dist[start] = 0
     
-    while heap:
-        length, u = heapq.heappop(heap)
+#     while heap:
+#         length, u = heapq.heappop(heap)
 
-        if dist[u] < length:
-            continue
+#         if dist[u] < length:
+#             continue
 
-        for v, weight in graph[u]:
-            if dist[v] <= length + weight:
-                continue
+#         for v, weight in graph[u]:
+#             if dist[v] <= length + weight:
+#                 continue
 
-            dist[v] = length + weight
-            heapq.heappush(heap, (dist[v], v))
-    return dist
+#             dist[v] = length + weight
+#             heapq.heappush(heap, (dist[v], v))
+#     return dist
     
-def solution(n, s, a, b, fares):
-    answer = set()
-    global graph
+# def solution(n, s, a, b, fares):
+#     answer = set()
+#     global graph
     
-    graph = [[] for _ in range(n+1)]
+#     graph = [[] for _ in range(n+1)]
     
-    for u, v, w in fares:
-        graph[u].append((v,w))
-        graph[v].append((u,w))
+#     for u, v, w in fares:
+#         graph[u].append((v,w))
+#         graph[v].append((u,w))
     
-    # s -> k까지 최단 거리 
-    distS = dijkstra(s, n)
+#     # s -> k까지 최단 거리 
+#     distS = dijkstra(s, n)
 
-    # 합승하지 않는 최단 거리
-    answer.add(distS[a] + distS[b])
+#     # 합승하지 않는 최단 거리
+#     answer.add(distS[a] + distS[b])
     
-    # s -> 경유(k) -> a,b 최단 거리
-    for k in range(1, n+1):
-        if k == s:
-            continue
+#     # s -> 경유(k) -> a,b 최단 거리
+#     for k in range(1, n+1):
+#         if k == s:
+#             continue
 
-        # k부터 모든 곳의 최단거리
-        distK = dijkstra(k, n)
-        tot = distS[k] + distK[a] + distK[b]
+#         # k부터 모든 곳의 최단거리
+#         distK = dijkstra(k, n)
+#         tot = distS[k] + distK[a] + distK[b]
 
-        answer.add(tot)
+#         answer.add(tot)
     
-    return min(answer)
+#     return min(answer)
