@@ -1,5 +1,4 @@
-# 0-1 BFS or Dijkstra
-
+# 0-1 BFS
 
 import sys
 from collections import deque
@@ -43,7 +42,6 @@ def solution(n, arr):
                 else:
                     dq.append((nr,nc,new_cost))
                 
-
 n = int(input())
 arr = []
 for i in range(n):
