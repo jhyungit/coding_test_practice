@@ -9,6 +9,7 @@ sys.stdin = open("coding_test_practice/SW Expert Academy/input_txt/햄버거 다
 # 조건1) 제한 칼로리 이하
 # 조건2) 점수 최대
 
+# Knapsack problem(배낭 문제 유형)
 def solution(score_cal, dp):
     for k in range(1, len(dp)):
         k_cal, k_worth = score_cal[k-1]
