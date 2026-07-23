@@ -29,8 +29,8 @@ def solution(w, h, start, waypoints):
             for j in range(n):
                 if mask & (1<<j): # 아직 안 간 j로
                     continue
-                nmask = mask | (1 << j) # j를 추가한 새 집합
                 cost = dp[mask][i] + dist[i][j] # i -> j 가는 비용
+                nmask = mask | (1 << j) # j를 추가한 새 집합
                 if cost < dp[nmask][j]: # 더 작으면
                     dp[nmask][j] = cost
 
