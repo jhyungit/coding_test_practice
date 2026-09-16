@@ -23,11 +23,11 @@ def solution(w, h, start, waypoints):
     for mask in range(1 << n): # 어떤 상태 mask에서
         for i in range(n): # 위치 i에서
             # 방문 체크
-            if dp[mask][i] == INF or not (mask & (1 << i)): # i가 실제로 방문한 곳이어야함
+            if dp[mask][i] == INF or not (mask & (1 << i)): # i가 방문한 곳이 아니면
                 continue
 
             for j in range(n):
-                if mask & (1<<j): # 아직 안 간 j로
+                if mask & (1<<j): # j가 이미 방문한 곳이면
                     continue
                 cost = dp[mask][i] + dist[i][j] # i -> j 가는 비용
                 nmask = mask | (1 << j) # j를 추가한 새 집합

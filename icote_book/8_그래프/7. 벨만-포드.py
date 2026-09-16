@@ -1,23 +1,19 @@
 def bellman_ford(n, edges, src):
-    dist = [float('inf')]*n
+    INF = float('inf')
+    dist = [INF]*n
     dist[src] = 0
-    parent = [-1] * n
     for _ in range(n-1): # n-1번 완화 => 최단 거리는 최대 n-1개의 간선으로 이루어짐
         update = False
         for u,v,w in edges:
-            if dist[u]+w < dist[v] and dist[u] != float('inf'):
+            if dist[u]+w < dist[v] and dist[u] != INF:
                 dist[v] = dist[u] + w
-                parent[v] = u
                 update =True
         if not update:
             break
-    print(dist)
-    
-    # print(dist)
     
     has_neg_cycle = False
     for u,v,w in edges: # n-1번 이후, 한 번 더 갱신이 발생하면 음수 사이클!
-        if dist[u] != float('inf') and dist[u] + w < dist[v]:
+        if dist[u] != INF and dist[u] + w < dist[v]:
             has_neg_cycle = True
             break
     
